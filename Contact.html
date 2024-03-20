@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-us</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default margin and padding */
+        body, h3, h1, ul {
+            margin: 0;
+            padding: 0;
+            font-weight: 700;
+            overflow: hidden; /* Disable scrolling */
+        }
+
+        /* Center content horizontally */
+        .center-content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            padding: 30%;
+            z-index: -1;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            margin-right: 125px; /* Adjust spacing between list items */
+            font-size: 1.5rem;
+        }
+
+        ul li:last-child {
+            margin-right: 0; /* Remove margin for the last list item */
+        }
+
+        /* Display list items side by side */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links li {
+            margin: 0 10px; /* Adjust spacing between list items */
+            font-size: 1.5rem;
+        }
+        .highlight {
+            color: #1a56ee;
+        }
+        .social-links li a:hover {
+            color: #6600aa; /* Change the color to #6600aa when hovered */
+        }
+    </style>
+</head>
+<body class="backdrop-blur" background="tinified\contact.jpeg">
+<header class="text-gray-400 bg-transparent backdrop-blur body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-transparent rounded-full" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+        </a>
+        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-20 hover:text-white" href="About.html">About</a>
+            <a class="mr-20 hover:text-white" href="Portforlio.html">Creations</a>
+            <a class="mr-20 hover:text-white" href="Testimonials.html">Clients</a>
+            <a class="mr-20 hover:text-white" href="Contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="center-content backdrop-blur">
+    <h3 class="highlight">Contact Us</h3>
+    <h1>Keep In Touch With Us.</h1> 
+<BR>
+    <ul>
+        <li>Discord</li>
+        <li>Email</li>
+        <li>Instagram</li>
+    </ul>
+
+    <ul class="social-links">
+        <li><a href="https://discordapp.com/users/1058046087279169536">Reach Resolve</a></li>
+        <li><a href="mailto:reachresolve89@gmail.com">reachresolve89@gmail</a></li>
+        <li><a href="https://www.instagram.com/souls_matrix">@souls_matrix</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
