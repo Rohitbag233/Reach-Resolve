@@ -1,48 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlidePosition();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlidePosition();
-    }
-
-    function updateSlidePosition() {
-      slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
-      });
-
-      // Show or hide the slide titles based on the current slide
-      const slideTitles = document.querySelectorAll('.slide-title');
-      slideTitles.forEach((title, index) => {
-        title.style.display = index === currentSlide ? 'block' : 'none';
-      });
-    }
-
-    // Automatically switch slides every 5 seconds
-    setInterval(nextSlide, 5000);
-});
-
-document.addEventListener("mousemove", parallax);
-
-function parallax(event) {
-    document.querySelectorAll(".parallax-img").forEach((img, index) => {
-        const depth = index + 1; // Increase depth for each image
-        const x = (window.innerWidth - event.pageX * depth) / 90;
-        const y = (window.innerHeight - event.pageY * depth) / 90;
-
-        img.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
-}
-
-
-
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
   let slideIndex = 0;
+  const circleContainer = document.querySelector('.circle');
+  const hiddenElements = document.querySelectorAll('.hidden');
+  const threshold = 400;
+  let lastScrollTop = 0;
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlidePosition();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  }
+
+  function updateSlidePosition() {
+    slides.forEach((slide, index) => {
+      slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
+    });
+
+    const slideTitles = document.querySelectorAll('.slide-title');
+    slideTitles.forEach((title, index) => {
+      title.style.display = index === currentSlide ? 'block' : 'none';
+    });
+  }
 
   function showSlides() {
     const slides = document.querySelectorAll('.slide-2');
@@ -52,24 +36,19 @@ function parallax(event) {
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1; }
     slides[slideIndex - 1].style.display = 'block';
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
   }
 
-  showSlides();
+  function parallax(event) {
+    document.querySelectorAll(".parallax-img").forEach((img, index) => {
+      const depth = index + 1; 
+      const x = (window.innerWidth - event.pageX * depth) / 90;
+      const y = (window.innerHeight - event.pageY * depth) / 90;
 
-  function prevSlide() {
-    slideIndex--;
-    if (slideIndex < 1) { slideIndex = slides.length; }
-    showSlides();
+      img.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
   }
 
-  function nextSlide() {
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-    showSlides();
-  }
-
-  const circleContainer = document.querySelector('.circle');
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -79,6 +58,7 @@ function parallax(event) {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
+
   function triggerAnimation() {
     if (isInViewport(circleContainer)) {
       const progressBars = document.querySelectorAll('[role="progressbar"]');
@@ -86,5 +66,53 @@ function parallax(event) {
       window.removeEventListener('scroll', triggerAnimation);
     }
   }
-  window.addEventListener('scroll', triggerAnimation);
-  triggerAnimation();
+
+  function observeCallback(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(observeCallback);
+  hiddenElements.forEach((el) => {
+    observer.observe(el);
+  });
+
+  setInterval(nextSlide, 5000); // Automatically switch slides every 5 seconds
+  showSlides(); // Automatically switch slides for slide-2
+  document.querySelector('.prev').addEventListener('click', prevSlide);
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.addEventListener('mousemove', parallax); // Parallax effect
+
+  // Scroll to top button
+  const scrollToTopBtn = document.querySelector('.scroll-to-top');
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Show scroll-to-top button when scrolling down
+  document.addEventListener('scroll', () => {
+    const currentScrollTop = window.pageYOffset;
+    if (currentScrollTop > threshold && lastScrollTop < currentScrollTop) {
+      scrollToTopBtn.classList.add('show');
+    } else {
+      scrollToTopBtn.classList.remove('show');
+    }
+    lastScrollTop = currentScrollTop;
+  });
+
+  // Scroll to top when user clicks on the button
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
