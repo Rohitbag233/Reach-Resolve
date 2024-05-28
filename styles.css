@@ -10,13 +10,57 @@ body, html {
   font-weight: 700;
 }
 
-.center {
-  text-align: center;
+.containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
-.center#highlight {
-  color: #1a56ee;
+.center {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
 }
+
+.skills {
+  background-color: #2e2e2e2e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 15%;
+}
+
+.skills h3 {
+  color: #00ff99;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skills ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+#highlights {
+  color: #1a56ee;
+  text-align: center;
+  position: absolute;
+  margin-top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .Hometxt {
   position: absolute;
