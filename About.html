@@ -8,34 +8,79 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel = "icon" href = tinified\Reachresolve.png type = "image/x-icon">
     <style>
-    body
-    {
+body {
     background-color: #171717;
     color: #ccc;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    }
+    margin: 0;
+    padding: 0;
+}
 
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.about-text {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+h3 {
+    color: #ddd;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+@media (min-width: 768px) {
     .about-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        flex-direction: row;
+        text-align: left;
         padding: 50px;
-    }
-
-    .about-img {
-        max-width: 50%;
-        height: auto;
     }
 
     .about-text {
         max-width: 50%;
-        margin: 50px;
+        margin-right: 50px;
     }
 
-    h3 {
-       color: #ddd; 
+    .about-img {
+        max-width: 50%;
     }
+
+    header nav a {
+        margin-right: 20px;
+    }
+    
+    ul {
+        display: block;
+    }
+
+    ul li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Adding some space between items */
+        display: block;
+    }
+}
     
     </style>
 </head>
