@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* General styling */
 body, html {
   margin: 0;
@@ -405,6 +409,7 @@ h3.center#Skillset-1{
   }
   .Testimonials{
     margin-bottom: -550px;
+    align-items: center; ;
   }
 }
 @media screen and (max-width: 480px) {
