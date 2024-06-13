@@ -1124,17 +1124,17 @@ nav{
 /* Adjusted background image paths */
 
 .slide:nth-child(1) {
-  background-image: url('tinified/home.jpg');
+  background-image: url('https://drive.google.com/file/d/15jmjVAqJFO-UbE2vuEzbPYJnULdIwF0p/view?usp=drive_link');
   transform: translateX(0%);
 }
 
 .slide:nth-child(2) {
-  background-image: url('tinified/home2.jpeg');
+  background-image: url('https://drive.google.com/file/d/1hyOPmPNEE0X7zuSQWwlL9aFHCw7Mzox8/view?usp=drive_link');
   transform: translateX(-100%);
 }
 
 .slide:nth-child(3) {
-  background-image: url('tinified/home3.jpg');
+  background-image: url('https://drive.google.com/file/d/1m2ApJvPDfSV2B0RLwpPgyQ5aginkXHwR/view?usp=drive_link');
   transform: translateX(-200%);
 }
 

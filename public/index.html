@@ -49,10 +49,10 @@
         <img class="w-10 h-10 text-white p-2 bg-neutral-900 rounded-full" src="tinified\Reachresolve.jpg">
       </a>
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-20 hover:text-white" href="https://reachresolve.run.place/About.html">About</a>
-        <a class="mr-20 hover:text-white" href="https://reachresolve.run.place/Portfolio.html">Creations</a>
-        <a class="mr-20 hover:text-white" href="https://reachresolve.run.place/Testimonials.html">Clients</a>
-        <a class="mr-20 hover:text-white" href="https://reachresolve.run.place/Contact.html">Contact</a>
+        <a class="mr-20 hover:text-white" href="About.html">About</a>
+        <a class="mr-20 hover:text-white" href="Portfolio.html">Creations</a>
+        <a class="mr-20 hover:text-white" href="Testimonials.html">Clients</a>
+        <a class="mr-20 hover:text-white" href="Contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -121,7 +121,7 @@
           WE deliver the perfect design & visuals  to you!
         </p>
         <div class="flex justify-center">
-          <a href="https://reachresolve.run.place/About.html">
+          <a href="About.html">
             <button class="inline-flex text-white bg-neutral-900 border-0 py-2 px-6 focus:outline-none rounded text-lg hover:bg-gray-700 transition duration-300 ease-in-out">Read More</button>
 
           </a>
@@ -291,4 +291,27 @@
   <script src="slideshow.js"></script>
   
 </body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCxaG3juYUotAORZKuRhsqN3sY8Uqv-UXc",
+    authDomain: "reach-resolve.firebaseapp.com",
+    projectId: "reach-resolve",
+    storageBucket: "reach-resolve.appspot.com",
+    messagingSenderId: "726287960684",
+    appId: "1:726287960684:web:4d15ed02c20cf0fd2b2649",
+    measurementId: "G-5EFXLQ9ESE"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </html>
